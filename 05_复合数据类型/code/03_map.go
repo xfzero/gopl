@@ -17,7 +17,8 @@ func test1() {
 
 	d := map[int]string{}
 	d[1] = "ab"
-	//a[1] = "ab" //空指针异常
+	//a[1] = "ab" //空指针异常，设置元素之前要先初始化
+	fmt.Println("a[1]:",a[1])
 
 
 	fmt.Println(a)
@@ -72,8 +73,22 @@ func test3() {
 	}
 }
 
+func test4() {
+	var a map[string]map[int]string
+	a = make(map[string]map[int]string)
+
+	b := map[int]string{
+		1: "bk1",
+		2: "bk2",
+	}
+
+	a["ak1"] = b
+	fmt.Println(a)
+}
+
 func main() {
 	// test1()
 	// test2()
 	test3()
+	test4()
 }
